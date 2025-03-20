@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://bodsm0y1yqgtv"]
+
+[ext_resource type="Script" uid="uid://c6r0lf3wc7gtv" path="res://scripts/main.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://8f0fd45ds7ap" path="res://scenes/player.tscn" id="2"]
+[ext_resource type="Script" uid="uid://cvh825t7aar8u" path="res://scripts/enemy_spawner.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://0ha55ko6bbcf" path="res://scenes/enemy.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dksfeukmmiwg1" path="res://scenes/hud.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://ry13g38hk1yp" path="res://scenes/upgrade_ui.tscn" id="6"]
+
+[sub_resource type="PlaneMesh" id="1"]
+size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="2"]
+albedo_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="3"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1")
+enemy_scene = ExtResource("4")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 10, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="EnemySpawner" type="Node3D" parent="."]
+script = ExtResource("3")
+
+[node name="HUD" parent="." instance=ExtResource("5")]
+
+[node name="UpgradeUI" parent="." instance=ExtResource("6")]
+visible = false
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true

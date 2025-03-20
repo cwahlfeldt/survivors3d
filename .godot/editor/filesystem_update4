@@ -1,0 +1,6 @@
+res://scenes/enemy.tscn
+res://scenes/hud.tscn
+res://scenes/main.tscn
+res://scenes/player.tscn
+res://scenes/upgrade_option.tscn
+res://scenes/upgrade_ui.tscn

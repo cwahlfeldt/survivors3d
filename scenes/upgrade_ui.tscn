@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://ry13g38hk1yp"]
+
+[ext_resource type="Script" uid="uid://cd3bwllnamlke" path="res://scripts/upgrade_ui.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c3r01cs4dyp0i" path="res://scenes/upgrade_option.tscn" id="2"]
+
+[node name="UpgradeUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+upgrade_option_scene = ExtResource("2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+
+[node name="TitleLabel" type="Label" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 24
+text = "Choose Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -50.0
+offset_right = 290.0
+offset_bottom = 100.0
+theme_override_constants/separation = 20
+alignment = 1
