@@ -4,3 +4,8 @@ res://scenes/main.tscn
 res://scenes/player.tscn
 res://scenes/upgrade_option.tscn
 res://scenes/upgrade_ui.tscn
+res://scripts/enemy.gd
+res://scripts/player.gd
+res://scripts/damage_effect.gd
+res://scripts/explosion_effect.gd
+res://scripts/projectile_effect.gd
